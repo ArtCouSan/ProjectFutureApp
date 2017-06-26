@@ -1,8 +1,9 @@
-# ProjectFutureApp
-Projeto de um aplicativo mobile multiplatarforma com intuito de auxiliar vestibulandos com simulados, dicas e resumos, além de jogos interativos. Utilizando:
-  - Como IDE: Intel XDK
-  - Framework Ionic
-  - Framework AngularJS
+# Vestibulando
+Projeto de um site com intuito de auxiliar vestibulandos com simulados, dicas e resumos, além de jogos interativos. Utilizando:
+  - Como IDE: Atom e Netbeans
+  - Framework Bootstrap
+  - Framework Foundation
   - HTML5
-  - CSS (Particular)
+  - Javascript
+  - PHP
   
