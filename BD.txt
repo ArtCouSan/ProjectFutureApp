@@ -2,36 +2,20 @@ CREATE DATABASE vestibulando;
 
 USE vestibulando;
 
-CREATE TABLE Endereco(
-	id_endereco INT(5) NOT NULL AUTO_INCREMENT,
-    cidade varchar(50) NOT NULL,
-    estado varchar(2) NOT NUll,
-    PRIMARY KEY (id_endereco),
-	UNIQUE KEY id_endereco (id_endereco)  
-);
-
-CREATE TABLE Pessoa(
-	id_pessoa INT(5) NOT NULL AUTO_INCREMENT,
-    id_endereco INT(5) NOT NULL,
+CREATE TABLE Usuario(
+    id_pessoa INT(5) NOT NULL AUTO_INCREMENT,
     Nome VARCHAR(50) NOT NULL,
     Sexo VARCHAR(1) NOT NULL,
     CPF VARCHAR(14) NOT NUll,
     Dt_Nasc DATE NOT NULL,
+    Cidade varchar(50) NOT NULL,
+    Estado varchar(2) NOT NUll,
+    Senha VARCHAR(50) NOT NULL,
     Ativo TINYINT NOT NULL,
     PRIMARY KEY (id_pessoa),
-	UNIQUE KEY id_pessoa (id_pessoa),
-    FOREIGN KEY id_endereco(id_endereco) REFERENCES endereco (id_endereco)
+    UNIQUE KEY id_pessoa (id_pessoa)
 );
 
-CREATE TABLE Usuario(
-  	Id_usuario INT(5) NOT NULL AUTO_INCREMENT,
-    id_pessoa INT(5) NOT NULL,
-    login VARCHAR(50) NOT NULL,
-    senha VARCHAR(50) NOT NULL,
-    PRIMARY KEY (Id_usuario),
-	UNIQUE KEY Id_usuario (Id_usuario),
-    FOREIGN KEY id_pessoa(id_pessoa) REFERENCES Pessoa (id_pessoa)
-);
 
 CREATE TABLE Instituicao(
 	Id_instituicao INT(5) NOT NULL AUTO_INCREMENT,

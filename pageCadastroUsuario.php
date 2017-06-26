@@ -4,33 +4,36 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Cadastro</title>
+        <link rel="stylesheet" type="text/css"  href="css/css.css">
         <link rel="stylesheet" type="text/css"  href="foundation/css/foundation.css">
+        <script type="text/javascript" src="js/cadastroUsuario.js"></script>
     </head>
-    <body>
+    <body class="cadastro">
         <div class = "top-bar">
             <ul class="dropdown menu">
                 <li class="menu-text">Educando</li>
-                <li><a href="index.html"  style="color: black">Tela de login</a></li>
+                <li><a href="index.php"  style="color: black">Tela de login</a></li>
             </ul>
         </div>
         <br />
-        <form action="" >
+        <form >
             <div class="row">
                 <div class="large-12 columns">
                     <label>* Nome Completo
-                        <input type="text" name="nome" maxlength="50" placeholder="Digite seu nome" required />
+                        <input type="text" id="nome" name="nome" maxlength="50" placeholder="Digite seu nome" autocomplete="off" required />
                     </label>
                 </div>
             </div>
             <div class="row">
                 <div class="large-4 columns">
-                    <label>* CPF
-                        <input type="text" name="cpf" maxlength="14" placeholder="Digite seu CPF sem pontuação" required />
+                    <label>* CPF - Login
+                        <input id="cpf" onkeypress="mascara(this, '###.###.###-##')" autocomplete="off" type="text" name="cpf" maxlength="14" placeholder="Digite seu CPF sem pontuação" required />
                     </label>
                 </div>
                 <div class="large-4 columns">
                     <label>* Sexo
-                        <select name="sexo" required>
+                        <select name="sexo" id="sexo" required>
+                            <option value="S">Selecione o Sexo</option>
                             <option value="M">Masculino</option>
                             <option value="F">Feminino</option>
                             <option value="O">Outros</option>
@@ -39,14 +42,14 @@
                 </div>
                 <div class="large-4 columns">
                     <label>* Data de Nascimento
-                        <input name="data_nasc" type="date"  required />
+                        <input name="data_nasc" id="dt_nasc" type="date" autocomplete="off"  required />
                     </label>
                 </div>
             </div>
             <div class="row">
                 <div class="large-6 columns">
                     <label>* Estado
-                        <select name="estado" required>
+                        <select name="estado" id="estado" autocomplete="off" required>
                             <option value="estado">Selecione o Estado</option>
                             <option value="ac">Acre</option>
                             <option value="al">Alagoas</option>
@@ -80,20 +83,20 @@
                 </div>
                 <div class="large-6 columns">
                     <label>* Cidade
-                        <input placeholder="Digite a cidade" name="cidade" maxlength="50" type="text" required />
+                        <input placeholder="Digite a cidade" id="cidade" autocomplete="off" name="cidade" maxlength="50" type="text" required />
                     </label>
                 </div>
             </div>
             <div class="row">
                 <div class="large-12 columns">
                     <label>* Senha - minimo 8 caracteres
-                        <input placeholder="Digite a senha para acesso" name="senha" maxlength="50" type="password" required />
+                        <input minlength="8" autocomplete="off" id="senha" placeholder="Digite a senha para acesso" name="senha" maxlength="50" type="password" required />
                     </label>
                 </div>
             </div>
             <div class="row">
                 <div class="large-12 columns">
-                    <button type="submit" class="button success">Cadastrar-se</button>
+                    <button type="submit" onclick="cadastra()" class="button success large-12">Cadastrar-se</button>
                 </div>
             </div>
         </form>
