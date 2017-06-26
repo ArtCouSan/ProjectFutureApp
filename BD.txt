@@ -1,0 +1,80 @@
+CREATE DATABASE vestibulando;
+
+USE vestibulando;
+
+CREATE TABLE Endereco(
+	id_endereco INT(5) NOT NULL AUTO_INCREMENT,
+    cidade varchar(50) NOT NULL,
+    estado varchar(2) NOT NUll,
+    PRIMARY KEY (id_endereco),
+	UNIQUE KEY id_endereco (id_endereco)  
+);
+
+CREATE TABLE Pessoa(
+	id_pessoa INT(5) NOT NULL AUTO_INCREMENT,
+    id_endereco INT(5) NOT NULL,
+    Nome VARCHAR(50) NOT NULL,
+    Sexo VARCHAR(1) NOT NULL,
+    CPF VARCHAR(14) NOT NUll,
+    Dt_Nasc DATE NOT NULL,
+    Ativo TINYINT NOT NULL,
+    PRIMARY KEY (id_pessoa),
+	UNIQUE KEY id_pessoa (id_pessoa),
+    FOREIGN KEY id_endereco(id_endereco) REFERENCES endereco (id_endereco)
+);
+
+CREATE TABLE Usuario(
+  	Id_usuario INT(5) NOT NULL AUTO_INCREMENT,
+    id_pessoa INT(5) NOT NULL,
+    login VARCHAR(50) NOT NULL,
+    senha VARCHAR(50) NOT NULL,
+    PRIMARY KEY (Id_usuario),
+	UNIQUE KEY Id_usuario (Id_usuario),
+    FOREIGN KEY id_pessoa(id_pessoa) REFERENCES Pessoa (id_pessoa)
+);
+
+CREATE TABLE Instituicao(
+	Id_instituicao INT(5) NOT NULL AUTO_INCREMENT,
+    Nome VARCHAR(100) NOT NULL,
+    Banca VARCHAR(100) NOT NULL,
+    Dificuldade VARCHAR(1) NOT NULL,
+    Ativo TINYINT NOT NULL,
+    PRIMARY KEY (Id_instituicao),
+	UNIQUE KEY Id_instituicao (Id_instituicao)
+);
+
+CREATE TABLE Prova(
+    Id_prova INT(5) NOT NULL AUTO_INCREMENT,
+    Id_instituicao INT(5) NOT NULL,
+    Dt_Prova DATE NOT NULL,
+    Versao VARCHAR(50) NOT NULL,
+    PRIMARY KEY (Id_prova),
+	UNIQUE KEY Id_prova (Id_prova),
+    FOREIGN KEY Id_instituicao(Id_instituicao) REFERENCES Instituicao (Id_instituicao)
+);
+
+CREATE TABLE Questoes(
+    Id_questao INT(5) NOT NULL AUTO_INCREMENT,
+	Id_prova INT(5) NOT NULL,
+    Enunciado VARCHAR(1000) NOT NULL,
+    Tema VARCHAR(50) NOT NULL,
+    Imagem VARCHAR(50) NOT NULL,
+    Dificuldade VARCHAR(1) NOT NULL,
+    Resposta VARCHAR(1) NOT NULL,
+    Ativo TINYINT NOT NULL,
+	PRIMARY KEY (Id_questao),
+	UNIQUE KEY Id_questao(Id_questao),
+    FOREIGN KEY Id_prova(Id_prova) REFERENCES Prova(Id_prova)
+);
+
+CREATE TABLE Alternativas(
+    Id_alternativas INT(5) NOT NULL AUTO_INCREMENT,
+    Id_questao INT(5) NOT NULL,
+    opcao VARCHAR(1) NOT NULL,
+    trecho VARCHAR(100) NOT NULL,
+    PRIMARY KEY (Id_alternativas),
+	UNIQUE KEY Id_alternativas(Id_alternativas),
+    FOREIGN KEY Id_questao(Id_questao) REFERENCES Questoes(Id_questao)
+);
+
+
