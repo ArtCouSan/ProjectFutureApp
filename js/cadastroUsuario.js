@@ -1,3 +1,9 @@
+/**
+ * Insere mascara em campos
+ * @param {type} t
+ * @param {type} mask
+ * @returns {undefined}
+ */
 function mascara(t, mask) {
     var i = t.value.length;
     var saida = mask.substring(1, 0);
@@ -7,7 +13,11 @@ function mascara(t, mask) {
     }
 }
 
-function PermiteNumeros(){
+/**
+ * Permite somente numeros no cpf
+ * @returns {undefined}
+ */
+function PermiteNumeros() {
     var tecla = window.event.keyCode;
     tecla = String.fromCharCode(tecla);
     if (!((tecla >= "0") && (tecla <= "9")))
@@ -16,6 +26,7 @@ function PermiteNumeros(){
     }
 }
 
+// Verifica navegado par xmlhhtp
 function getXMLHttpRequest() {
     var xmlhttp;
     try {
@@ -34,8 +45,13 @@ function getXMLHttpRequest() {
     return xmlhttp;
 }
 
-var request = getXmlHttp();
+// Variavel global no escopo para funções
+var request = getXMLHttpRequest();
 
+/**
+ * Cadastra via xmlhtttp o cliente, chamando os campos e enviando para a classe de servico
+ * @returns {undefined}
+ */
 function cadastra() {
     var nm = document.getElementById("nome").value;
     var se = document.getElementById("senha").value;
@@ -50,92 +66,157 @@ function cadastra() {
         request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         request.onreadystatechange = confirma;
         request.send("nome=" + nm + "&senha=" + se + "&cpf=" + cpf + "&sexo=" + sx + "&data_nasc=" + dt + "&cidade=" + cd + "&estado=" + es);
+    } else {
+        alert("Erro");
     }
-
 }
 
+/**
+ * Valida preenchimento dos campos e chama função de validação de campo do cpf
+ * @param {type} nm
+ * @param {type} se
+ * @param {type} cpf
+ * @param {type} sx
+ * @param {type} dt
+ * @param {type} es
+ * @param {type} cd
+ * @returns {Boolean}
+ */
 function verificaCampos(nm, se, cpf, sx, dt, es, cd) {
+    var cont = 0, contCPF = 0;
 
+    // Verifica preenchimento do cpf
     for (var i = 0; i < cpf.length; i++) {
-        if (cpf.charAt(i) == " ") {
-            return false;
+        if (cpf.charAt(i) == null) {
+            cont++;
+            pintaBordaCampo("cpf");
+            break;
+        } else {
+            contCPF++;
         }
     }
 
+    // Verifica se preencheu nome
     if (nm.toString().trim().length == 0) {
-        return false;
-    } else if (se.toString().trim().length == 0) {
-        return false;
-    } else if (validaCPF(cpf)) {
-        return false;
-    } else if (sx == "S") {
-        return false;
-    } else if (dt == "") {
-        return false;
-    } else if (cd.toString().trim().length == 0) {
-        return false;
-    } else if (es == "estado") {
-        return false;
+        cont++;
+        pintaBordaCampo("nome");
     } else {
-        return true;
+        tiraBordaCampo("nome");
+    }
+
+    // Verifica se preencheu senha.
+    if (se.toString().trim().length == 0) {
+        cont++;
+        pintaBordaCampo("senha");
+    } else {
+        tiraBordaCampo("senha");
+    }
+
+    // Verifica se preencheu cpf corretamente
+    if (!validaCPF(cpf) && contCPF > 0) {
+        tiraBordaCampo("cpf");
+    } else {
+        cont++;
+        pintaBordaCampo("cpf");
+    }
+
+    // Verifica se preencheu sexo
+    if (sx == 'S') {
+        cont++;
+        pintaBordaCampo("sexo");
+    } else {
+        tiraBordaCampo("sexo");
+    }
+
+    // Verifica se preencheu data
+    if (dt == undefined) {
+        cont++;
+        
+    } else {
+        
+    }
+
+    // Verifica se preencheu cidade.
+    if (cd.toString().trim().length == 0) {
+        cont++;
+        pintaBordaCampo("cidade");
+    } else {
+        tiraBordaCampo("cidade");
+    }
+
+    // Verifica se preencheu estado
+    if (es == "estado") {
+        cont++;
+        
+    } else {
+       
+    }
+
+    // Retorna resultado da verificações
+    if (cont > 0) {
+        return false;
     }
 
 }
 
+// Pinta borda do elelemento incorreto
+function pintaBordaCampo(id) {
+    var elemento = document.getElementById(id);
+    var classe = document.createAttribute("class");
+    classe.value = "callout alert-callout-border alert";
+    elemento.appendChild(classe);
+}
+
+// Pinta borda do elemento correto
+function tiraBordaCampo(id) {
+    //document.getElementById("nome").classList.value.length
+    var elemento = document.getElementById(id);
+    elemento.className = "callout alert-callout-border success";
+}
+
+
+/**
+ * Função valida existencia de um cpf real
+ * @param {type} cpf
+ * @returns {Boolean}
+ */
 function validaCPF(cpf) {
 
+    // Tira mascara do cpf
     var parte1 = cpf.substring(0, 3);
-
     var parte2 = cpf.substring(4, 7);
-
     var parte3 = cpf.substring(8, 11);
-
     var parte4 = cpf.substring(12, 14);
-
     var CPF = (parte1) + (parte2) + (parte3) + (parte4);
 
+    // Realiza calculo
     var Soma;
-
     var Resto;
-
     Soma = 0;
-
-    if (CPF == "00000000000") {
-        return true;
-    }
-
-    for (i = 1; i <= 9; i++) {
+    if (CPF == "00000000000")
+        return false;
+    for (i = 1; i <= 9; i++)
         Soma = Soma + parseInt(CPF.substring(i - 1, i)) * (11 - i);
-        Resto = (Soma * 10) % 11;
-    }
-
-    if ((Resto == 10) || (Resto == 11)) {
+    Resto = (Soma * 10) % 11;
+    if ((Resto == 10) || (Resto == 11))
         Resto = 0;
-    }
-
-    if (Resto != parseInt(CPF.substring(9, 10))) {
-        return true;
-    }
-
+    if (Resto != parseInt(CPF.substring(9, 10)))
+        return false;
     Soma = 0;
-
-    for (i = 1; i <= 10; i++) {
+    for (i = 1; i <= 10; i++)
         Soma = Soma + parseInt(CPF.substring(i - 1, i)) * (12 - i);
-        Resto = (Soma * 10) % 11;
-    }
-
-    if ((Resto == 10) || (Resto == 11)) {
+    Resto = (Soma * 10) % 11;
+    if ((Resto == 10) || (Resto == 11))
         Resto = 0;
-    }
-
-    if (Resto != parseInt(CPF.substring(10, 11))) {
-        return true;
-    }
-
-    return false;
-
+    if (Resto != parseInt(CPF.substring(10, 11)))
+        return false;
+    return true;
 }
 
+/**
+ * Apresenta mensagem na tela de cadastro concluido
+ * @returns {undefined}
+ */
 function confirma() {
     if (request.readyState == 4) {
         alert("Cadastrado");

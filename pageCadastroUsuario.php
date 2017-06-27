@@ -88,7 +88,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="large-12 columns">
+                <div class="large-12 columns"> 
                     <label>* Senha - minimo 8 caracteres
                         <input minlength="8" autocomplete="off" id="senha" placeholder="Digite a senha para acesso" name="senha" maxlength="50" type="password" required />
                     </label>
@@ -96,7 +96,7 @@
             </div>
             <div class="row">
                 <div class="large-12 columns">
-                    <button type="submit" onclick="cadastra()" class="button success large-12">Cadastrar-se</button>
+                    <button onclick="cadastra()" class="button success large-12">Cadastrar-se</button>
                 </div>
             </div>
         </form>

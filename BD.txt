@@ -7,7 +7,7 @@ CREATE TABLE Usuario(
     Nome VARCHAR(50) NOT NULL,
     Sexo VARCHAR(1) NOT NULL,
     CPF VARCHAR(14) NOT NUll,
-    Dt_Nasc DATE NOT NULL,
+    Dt_Nasc varchar(20) NOT NULL,
     Cidade varchar(50) NOT NULL,
     Estado varchar(2) NOT NUll,
     Senha VARCHAR(50) NOT NULL,
