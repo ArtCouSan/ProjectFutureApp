@@ -1,0 +1,9 @@
+II - Aspectos de Segurança dos Sistemas Computacionais: 
+qualificações de acesso, chaves e senhas, vírus e antivírus, 
+procedimentos de "backup". 
+III - Aplicativos Computacionais
+Básicos: navegadores, conhecimentos de Word e Excel. 
+IV - Comunicação através de Redes Computacionais: 
+recursos necessários e mecanismos de comunicação; 
+programas de transferência e arquivos e correio eletrônico; 
+Organização da Intranet e Internet. 

@@ -61,11 +61,11 @@ function cadastra() {
     var es = document.getElementById("estado").value;
     var cd = document.getElementById("cidade").value;
     if (verificaCampos(nm, se, cpf, sx, dt, es, cd)) {
-        var url = "ServicosUsuario.php";
-        request.open("POST", url, true);
-        request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        request.onreadystatechange = confirma;
-        request.send("nome=" + nm + "&senha=" + se + "&cpf=" + cpf + "&sexo=" + sx + "&data_nasc=" + dt + "&cidade=" + cd + "&estado=" + es);
+//        var url = "ServicosUsuario.php";
+//        request.open("POST", url, true);
+//        request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+//        request.onreadystatechange = confirma;
+//        request.send("nome=" + nm + "&senha=" + se + "&cpf=" + cpf + "&sexo=" + sx + "&data_nasc=" + dt + "&cidade=" + cd + "&estado=" + es);
     } else {
         alert("Erro");
     }
@@ -83,13 +83,13 @@ function cadastra() {
  * @returns {Boolean}
  */
 function verificaCampos(nm, se, cpf, sx, dt, es, cd) {
+    
     var cont = 0, contCPF = 0;
 
     // Verifica preenchimento do cpf
     for (var i = 0; i < cpf.length; i++) {
         if (cpf.charAt(i) == null) {
             cont++;
-            pintaBordaCampo("cpf");
             break;
         } else {
             contCPF++;
@@ -123,15 +123,16 @@ function verificaCampos(nm, se, cpf, sx, dt, es, cd) {
     // Verifica se preencheu sexo
     if (sx == 'S') {
         cont++;
-        pintaBordaCampo("sexo");
+        pintaBordaCampoCombo("sexo");
     } else {
-        tiraBordaCampo("sexo");
+        tiraBordaCampoCombo("sexo");
     }
-
+    
     // Verifica se preencheu data
-    if (dt == undefined) {
+    if (dt == undefined || dt == '') {
         cont++;
-        
+        console.log(dt);
+        pintaBordaCampoCombo("dt_nasc");
     } else {
         
     }
@@ -147,9 +148,9 @@ function verificaCampos(nm, se, cpf, sx, dt, es, cd) {
     // Verifica se preencheu estado
     if (es == "estado") {
         cont++;
-        
+        pintaBordaCampoCombo("estado");
     } else {
-       
+        tiraBordaCampoCombo("estado");
     }
 
     // Retorna resultado da verificações
@@ -159,21 +160,29 @@ function verificaCampos(nm, se, cpf, sx, dt, es, cd) {
 
 }
 
-// Pinta borda do elelemento incorreto
+// Pinta borda do elemento incorreto
 function pintaBordaCampo(id) {
     var elemento = document.getElementById(id);
-    var classe = document.createAttribute("class");
-    classe.value = "callout alert-callout-border alert";
-    elemento.appendChild(classe);
+    elemento.className = "callout alert-callout-border alert";
 }
 
 // Pinta borda do elemento correto
 function tiraBordaCampo(id) {
-    //document.getElementById("nome").classList.value.length
     var elemento = document.getElementById(id);
     elemento.className = "callout alert-callout-border success";
 }
 
+// Pinta borda dos elementos com combobox
+function pintaBordaCampoCombo(id) {
+    var elemento = document.getElementById(id);
+    elemento.className = "alertComboBox";
+}
+
+// Pinta borda do elemento combo box correto
+function tiraBordaCampoCombo(id) {
+    var elemento = document.getElementById(id);
+    elemento.className = "sucessComboBox";
+}
 
 /**
  * Função valida existencia de um cpf real

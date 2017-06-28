@@ -15,6 +15,24 @@
      *    IE on Windows Phone and in iOS.
      */
 
+.alertComboBox{
+    background-color: #f4e7e3; 
+    border-left: #d43f3a solid 1px; 
+    border-right: #adadad solid 1px;
+    border-bottom: #adadad solid 1px;
+    border-top: #adadad solid 1px;
+    color: #cccccc;     
+}
+
+.sucessComboBox{
+    background-color: #d8f9d2;
+    border-left: #4fe335 solid 1px; 
+    border-right: #adadad solid 1px;
+    border-bottom: #adadad solid 1px;
+    border-top: #adadad solid 1px;
+    color: #000;
+}
+
 .alert-callout-border {
     width: 100%;
     padding: 1.3rem;

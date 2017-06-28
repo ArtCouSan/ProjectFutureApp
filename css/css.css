@@ -4,9 +4,10 @@
 }
 
 .cadastro{
-    background-image: url("img/cadastro.jpg");
+    background-image: url("../img/cadastro.jpg");
+    background-size: cover;
     background-repeat: no-repeat;
-}
+} 
 
 .vcenter {
     position: fixed;
@@ -16,4 +17,5 @@
     bottom: 0%;
     margin: 0;
 }
+
 
