@@ -65,9 +65,7 @@ function cadastra() {
 //        request.open("POST", url, true);
 //        request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 //        request.onreadystatechange = confirma;
-//        request.send("nome=" + nm + "&senha=" + se + "&cpf=" + cpf + "&sexo=" + sx + "&data_nasc=" + dt + "&cidade=" + cd + "&estado=" + es);
-    } else {
-        alert("Erro");
+//        request.send("funcao=cadastrarNovoUsuario&nome=" + nm + "&senha=" + se + "&cpf=" + cpf + "&sexo=" + sx + "&data_nasc=" + dt + "&cidade=" + cd + "&estado=" + es);
     }
 }
 
@@ -83,7 +81,7 @@ function cadastra() {
  * @returns {Boolean}
  */
 function verificaCampos(nm, se, cpf, sx, dt, es, cd) {
-    
+
     var cont = 0, contCPF = 0;
 
     // Verifica preenchimento do cpf
@@ -105,7 +103,7 @@ function verificaCampos(nm, se, cpf, sx, dt, es, cd) {
     }
 
     // Verifica se preencheu senha.
-    if (se.toString().trim().length == 0) {
+    if (se.toString().trim().length != 8) {
         cont++;
         pintaBordaCampo("senha");
     } else {
@@ -127,14 +125,13 @@ function verificaCampos(nm, se, cpf, sx, dt, es, cd) {
     } else {
         tiraBordaCampoCombo("sexo");
     }
-    
+
     // Verifica se preencheu data
-    if (dt == undefined || dt == '') {
+    if (dt == '') {
         cont++;
-        console.log(dt);
-        pintaBordaCampoCombo("dt_nasc");
+        pintaBordaCampo("dt_nasc");
     } else {
-        
+        tiraBordaCampo("dt_nasc");
     }
 
     // Verifica se preencheu cidade.

@@ -11,7 +11,7 @@ CREATE TABLE Usuario(
     Cidade varchar(50) NOT NULL,
     Estado varchar(2) NOT NUll,
     Senha VARCHAR(50) NOT NULL,
-    Ativo TINYINT NOT NULL,
+    Ativo TINYINT NOT NULL AUTO_INCREMENT,
     PRIMARY KEY (id_pessoa),
     UNIQUE KEY id_pessoa (id_pessoa)
 );
@@ -22,7 +22,7 @@ CREATE TABLE Instituicao(
     Nome VARCHAR(100) NOT NULL,
     Banca VARCHAR(100) NOT NULL,
     Dificuldade VARCHAR(1) NOT NULL,
-    Ativo TINYINT NOT NULL,
+    Ativo TINYINT NOT NULL AUTO_INCREMENT,
     PRIMARY KEY (Id_instituicao),
 	UNIQUE KEY Id_instituicao (Id_instituicao)
 );
@@ -45,7 +45,7 @@ CREATE TABLE Questoes(
     Imagem VARCHAR(50) NOT NULL,
     Dificuldade VARCHAR(1) NOT NULL,
     Resposta VARCHAR(1) NOT NULL,
-    Ativo TINYINT NOT NULL,
+    Ativo TINYINT NOT NULL AUTO_INCREMENT,
 	PRIMARY KEY (Id_questao),
 	UNIQUE KEY Id_questao(Id_questao),
     FOREIGN KEY Id_prova(Id_prova) REFERENCES Prova(Id_prova)
@@ -62,3 +62,4 @@ CREATE TABLE Alternativas(
 );
 
 
+INSERT INTO `usuario`(`Nome`, `Sexo`, `CPF`, `Dt_Nasc`, `Cidade`, `Estado`, `Senha`) VALUES ("Arthur","M","437.931.688-24","17-01-1998","SP","SP","administrador");

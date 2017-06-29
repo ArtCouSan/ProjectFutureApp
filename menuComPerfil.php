@@ -14,7 +14,6 @@
                 <li><a href="pageProvaPorTema.php" style="color: black">Questões por Tema</a></li>
                 <li><a href="pageJogosQuestoesAleatorias.php" style="color: black">Jogo - Questões Aleatorias</a></li>
                 <li><a href="Logout.php"  style="color: black">Logout</a></li>
-                <li><a href="banco_de_dados.php"  style="color: black">C</a></li>
             </ul>
         </div>
     </body>

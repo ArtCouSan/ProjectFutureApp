@@ -8,7 +8,7 @@
         <link rel="stylesheet" type="text/css"  href="foundation/css/foundation.css">
         <script type="text/javascript" src="js/cadastroUsuario.js"></script>
     </head>
-    <body class="cadastro">
+    <body >
         <div class = "top-bar">
             <ul class="dropdown menu">
                 <li class="menu-text">Educando</li>
@@ -32,7 +32,7 @@
                 </div>
                 <div class="large-4 columns">
                     <label>* Sexo
-                        <select  name="sexo" class="" id="sexo" required>
+                        <select name="sexo" class="" id="sexo" required>
                             <option value="S">Selecione o Sexo</option>
                             <option value="M">Masculino</option>
                             <option value="F">Feminino</option>
@@ -42,7 +42,7 @@
                 </div>
                 <div class="large-4 columns">
                     <label>* Data de Nascimento
-                        <input class="" name="data_nasc" id="dt_nasc" type="date" autocomplete="off"  required />
+                        <input class="" name="dt_nasc" id="dt_nasc" type="date" autocomplete="off" required />
                     </label>
                 </div>
             </div>
