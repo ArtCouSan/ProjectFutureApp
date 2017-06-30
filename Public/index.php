@@ -4,10 +4,10 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Login</title>
-        <link rel="stylesheet" type="text/css"  href="foundation/css/foundation.css">
-        <link rel="stylesheet" type="text/css"  href="css/css.css">
-        <link rel="stylesheet" type="text/css"  href="bootstrap/css/bootstrap.css">
-        <script type="text/javascript" src="js/index.js"></script>
+        <link rel="stylesheet" type="text/css"  href="../Libs/foundation/css/foundation.css">
+        <link rel="stylesheet" type="text/css"  href="../Libs/css/css.css">
+        <link rel="stylesheet" type="text/css"  href="../Libs/bootstrap/css/bootstrap.css">
+        <script type="text/javascript" src="../App/Admin/js/index.js"></script>
     </head>
     <body class="vcenter" onload="location:'Logout.php'">
         <div class="container large-text-center " style="opacity: 0.95; ">
@@ -18,7 +18,7 @@
                             <h3 class="panel-title">Login</h3>
                         </div>
                         <div class="panel-body">
-                            <form action="Login.php" method="Post" role="form">
+                            <form action="../App/DAL/ServicosLogout .php" method="Post" role="form">
                                 <fieldset>
                                     <div class="form-group">
                                         <input onkeypress="mascara(this, '###.###.###-##');" onkeydown="PermiteNumeros();" class="form-control" maxlength="14" placeholder="CPF Sem Pontuação" name="login" type="text" required>
@@ -30,10 +30,10 @@
                                 </fieldset>
                             </form>
                             <br />
-                            <a class="btn btn-lg bg-info btn-block" href="pageCadastroUsuario.php" >Cadastrar-se</a>
+                            <a class="btn btn-lg bg-info btn-block" href="../App/Admin/View/pageCadastroUsuario.php" >Cadastrar-se</a>
                             <hr/>   
                             <center><h4>Ou</h4></center>
-                            <a class="btn btn-facebook btn-lg btn-block" href="menuSemPerfil.php" >Login sem perfil</a>
+                            <a class="btn btn-facebook btn-lg btn-block" href="../App/View/pageMenuSemPerfil.php" >Login sem perfil</a>
                         </div>
                     </div>
                 </div>

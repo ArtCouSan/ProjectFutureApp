@@ -4,9 +4,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Cadastro</title>
-        <link rel="stylesheet" type="text/css"  href="css/css.css">
-        <link rel="stylesheet" type="text/css"  href="foundation/css/foundation.css">
-        <script type="text/javascript" src="js/cadastroUsuario.js"></script>
+        <link rel="stylesheet" type="text/css"  href="../../../Libs/css/css.css">
+        <link rel="stylesheet" type="text/css"  href="../../../Libs/foundation/css/foundation.css">
+        <script type="text/javascript" src="../js/cadastroQuestao.js"></script>
     </head>
     <body >
         <?php include "cabecalho.php" ?>
@@ -37,7 +37,7 @@
                 </div>
                 <div class="large-4 columns">
                     <label>* Numero da questão
-                        <input type="number" min="0" onkeydown="return false" value="0" required/>
+                        <input type="number" name="numero_q" min="0" onkeydown="return false" value="0" required/>
                     </label>
                 </div>
             </div>

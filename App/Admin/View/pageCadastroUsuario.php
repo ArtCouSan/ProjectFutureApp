@@ -4,11 +4,12 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Cadastro</title>
-        <link rel="stylesheet" type="text/css"  href="css/css.css">
-        <link rel="stylesheet" type="text/css"  href="foundation/css/foundation.css">
-        <script type="text/javascript" src="js/cadastroUsuario.js"></script>
+        <link rel="stylesheet" type="text/css"  href="../../../Libs/css/css.css">
+        <link rel="stylesheet" type="text/css"  href="../../../Libs/foundation/css/foundation.css">
+        <script type="text/javascript" src="../js/cadastroUsuario.js"></script>
     </head>
     <body >
+        <?php include "cabecalho.php" ?>
         <div class = "top-bar">
             <ul class="dropdown menu">
                 <li class="menu-text">Educando</li>
