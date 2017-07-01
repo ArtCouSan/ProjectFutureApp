@@ -61,11 +61,11 @@ function cadastra() {
     var es = document.getElementById("estado").value;
     var cd = document.getElementById("cidade").value;
     if (verificaCampos(nm, se, cpf, sx, dt, es, cd)) {
-//        var url = "ServicosUsuario.php";
-//        request.open("POST", url, true);
-//        request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-//        request.onreadystatechange = confirma;
-//        request.send("funcao=cadastrarNovoUsuario&nome=" + nm + "&senha=" + se + "&cpf=" + cpf + "&sexo=" + sx + "&data_nasc=" + dt + "&cidade=" + cd + "&estado=" + es);
+        var url = "../../Controller/ServicosUsuario.php";
+        request.open("POST", url, true);
+        request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        request.onreadystatechange = confirma;
+        request.send("funcao=cadastrarNovoUsuario&nome=" + nm + "&senha=" + se + "&cpf=" + cpf + "&sexo=" + sx + "&data_nasc=" + dt + "&cidade=" + cd + "&estado=" + es);
     }
 }
 

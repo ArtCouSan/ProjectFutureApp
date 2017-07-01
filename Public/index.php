@@ -9,7 +9,7 @@
         <link rel="stylesheet" type="text/css"  href="../Libs/bootstrap/css/bootstrap.css">
         <script type="text/javascript" src="../App/Admin/js/index.js"></script>
     </head>
-    <body class="vcenter" onload="location:'Logout.php'">
+    <body class="vcenter">
         <div class="container large-text-center " style="opacity: 0.95; ">
             <div class="row col-xs-12">
                 <div class="col-md-7 col-md-offset-6">
@@ -18,7 +18,7 @@
                             <h3 class="panel-title">Login</h3>
                         </div>
                         <div class="panel-body">
-                            <form action="../App/DAL/ServicosLogout .php" method="Post" role="form">
+                            <form action="../App/Controller/ServicosLogin.php" method="POST" role="form">
                                 <fieldset>
                                     <div class="form-group">
                                         <input onkeypress="mascara(this, '###.###.###-##');" onkeydown="PermiteNumeros();" class="form-control" maxlength="14" placeholder="CPF Sem Pontuação" name="login" type="text" required>

@@ -15,8 +15,8 @@
             <div class="row">
                 <div class="large-4 columns">
                     <label>* Tema
-                        <select name="tema" required>
-                            <option value="se">Selecione o Tema</option>
+                        <select id="tema" name="tema" required>
+                            <option value="">Selecione o Tema</option>
                             <option value="bi">Biologia</option>
                             <option value="fi">Fisica</option>
                             <option value="qu">Química</option>
@@ -30,22 +30,22 @@
                 </div>
                 <div class="large-4 columns">
                     <label>* Sub-Temas
-                        <select name="sub-tema" required>
-                            <option value="se">Selecione o sub-tema</option>
+                        <select id="sub_tema" name="sub_tema" required>
+                            <option value="">Selecione o sub-tema</option>
                         </select>
                     </label>
                 </div>
                 <div class="large-4 columns">
                     <label>* Numero da questão
-                        <input type="number" name="numero_q" min="0" onkeydown="return false" value="0" required/>
+                        <input id="numero_q" type="number" name="numero_q" min="0" onkeydown="return false" value="0" required/>
                     </label>
                 </div>
             </div>
             <div class="row">
                 <div class="large-4 columns">
                     <label>* Instituição / Banca
-                        <select name="banca" required>
-                            <option value="se">Selecione a instituição</option>
+                        <select id="banca" name="banca" required>
+                            <option value="">Selecione a instituição</option>
                             <option value="enem">Enem</option>
                             <option value="fuvest">Fuvest</option>
                             <option value="etec">Etec</option>    
@@ -54,8 +54,8 @@
                 </div>
                 <div class="large-4 columns">
                     <label>* Versão ou Cor
-                        <select name="versao" required>
-                            <option value="se">Selecione a cor</option>
+                        <select name="versao" id="versao" required>
+                            <option value="">Selecione a cor</option>
                             <option value="amarelo">Amarelo</option>
                             <option value="azul">Azul</option>
                             <option value="cinza">Cinza</option>
@@ -68,15 +68,15 @@
                 </div>
                 <div class="large-4 columns">
                     <label>* Data de aplicação da prova
-                        <input type="date" name="data" required/>
+                        <input id="data" type="date" name="data" required/>
                     </label>
                 </div> 
             </div>
             <div class="row">
                 <div class="large-4 columns">
                     <label>* Dificuldade
-                        <select name="dificuldade" required>
-                            <option value="se">Selecione a dificuldade</option>
+                        <select id="dificuldade" name="dificuldade" required>
+                            <option value="">Selecione a dificuldade</option>
                             <option value="1">Facil</option>
                             <option value="2">Medio</option>
                             <option value="3">Dificil</option>
@@ -85,8 +85,8 @@
                 </div>
                 <div class="large-4 columns">
                     <label>* Resposta - Alternativa
-                        <select name="alternativa" required>
-                            <option value="se">Selecione a alternativa</option>
+                        <select id="alternativa" name="alternativa" required>
+                            <option value="">Selecione a alternativa</option>
                             <option value="a">A</option>
                             <option value="b">B</option>
                             <option value="c">C</option>
@@ -97,39 +97,39 @@
                 </div>
                 <div class="large-4 columns">
                     <label>* Dica
-                        <input type="text" name="dica" placeholder="Digite uma dica :)" required/>
+                        <input id="dica" type="text" name="dica" placeholder="Digite uma dica :)" required/>
                     </label>
                 </div>
             </div>
             <div class="row">
                 <div class="large-12 columns">
                     <label>* Enunciado
-                        <textarea name="enunciado" placeholder="Digite o enunciado" required></textarea>
+                        <textarea id="enunciado" name="enunciado" placeholder="Digite o enunciado" required></textarea>
                     </label>
                 </div>
             </div>
             <div class="row">
                 <div class="large-12 columns">
                     <label>* Alternativa A:
-                        <textarea name="alternativa_a" placeholder="Digite o conteudo da alternativa" required></textarea>
+                        <textarea id="alternativa_a" name="alternativa_a" placeholder="Digite o conteudo da alternativa" required></textarea>
                     </label>
                     <label>* Alternativa B:
-                        <textarea name="alternativa_b" placeholder="Digite o conteudo da alternativa" required></textarea>
+                        <textarea id="alternativa_b" name="alternativa_b" placeholder="Digite o conteudo da alternativa" required></textarea>
                     </label>
                     <label>* Alternativa C:
-                        <textarea name="alternativa_c" placeholder="Digite o conteudo da alternativa" required></textarea>
+                        <textarea id="alternativa_c" name="alternativa_c" placeholder="Digite o conteudo da alternativa" required></textarea>
                     </label>
                     <label>* Alternativa D:
-                        <textarea name="alternativa_d" placeholder="Digite o conteudo da alternativa" required></textarea>
+                        <textarea id="alternativa_d" name="alternativa_d" placeholder="Digite o conteudo da alternativa" required></textarea>
                     </label>
                     <label>* Alternativa E:
-                        <textarea name="alternativa_e" placeholder="Digite o conteudo da alternativa" required></textarea>
+                        <textarea id="alternativa_e" name="alternativa_e" placeholder="Digite o conteudo da alternativa" required></textarea>
                     </label>
                 </div>
             </div>
             <div class="row">
                 <div class="large-12 columns">
-                    <button  class="button success large-12">Cadastrar</button>
+                    <button onclick="cadastra()"  class="button success large-12">Cadastrar</button>
                 </div>
             </div>
         </form>

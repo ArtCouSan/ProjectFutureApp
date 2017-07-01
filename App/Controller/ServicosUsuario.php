@@ -1,6 +1,6 @@
 <?php
 
-// Executa um dos serviços.
+//Executa um dos serviços.
 if (isset($_POST['funcao'])) {
     $_POST['funcao']();
 }
@@ -79,25 +79,16 @@ function cadastrarNovoUsuario() {
 
     if (validarDadosUsuario($nm, $se, $cpf, $sx, $dt, $cd, $es)) {
 
-        include './BancoDeDados.php';
+        include('../DAL/UsuarioDAO.php');
 
-        $sql = "INSERT INTO Usuario(Nome, Sexo, CPF, Dt_Nasc, Cidade, Estado, Senha) VALUES( +
-        '$nm' ,  
-        '$sx' ,  
-        '$cpf' ,  
-        '$dt' ,  
-        '$cd' ,  
-        '$es' ,  
-        '$se' )";
+        $user = new UsuarioDAO();
 
-        $rs = mysqli_query($conmysql, $sql);
-        
-        mysqli_close($conmysql);
-        
+        $user->cadastrar($nm, $se, $cpf, $sx, $dt, $cd, $es);
+
     } else {
 
-        echo "Dados Invalidos no Cadastro";
-        
+       echo "Dados Invalidos no Cadastro";
+
     }
-    
+
 }
