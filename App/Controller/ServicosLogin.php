@@ -5,7 +5,7 @@ $senhaV = $_POST['senha'];
 
 if (!empty($loginV) && !empty($senhaV)) {
 
-    include '../DAL/LoginDAO.php';
+    include './DAL/LoginDAO.php';
 
     $classLog = new Login;
 

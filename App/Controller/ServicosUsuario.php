@@ -79,7 +79,7 @@ function cadastrarNovoUsuario() {
 
     if (validarDadosUsuario($nm, $se, $cpf, $sx, $dt, $cd, $es)) {
 
-        include('../DAL/UsuarioDAO.php');
+        include './DAL/UsuarioDAO.php';
 
         $user = new UsuarioDAO();
 

@@ -7,7 +7,7 @@
         <link rel="stylesheet" type="text/css"  href="../Libs/foundation/css/foundation.css">
         <link rel="stylesheet" type="text/css"  href="../Libs/css/css.css">
         <link rel="stylesheet" type="text/css"  href="../Libs/bootstrap/css/bootstrap.css">
-        <script type="text/javascript" src="../App/Admin/js/index.js"></script>
+        <script type="text/javascript" src="../App/Controller/js/index.js"></script>
     </head>
     <body class="vcenter">
         <div class="container large-text-center " style="opacity: 0.95; ">
@@ -30,10 +30,10 @@
                                 </fieldset>
                             </form>
                             <br />
-                            <a class="btn btn-lg bg-info btn-block" href="../App/Admin/View/pageCadastroUsuario.php" >Cadastrar-se</a>
+                            <a class="btn btn-lg bg-info btn-block" href="../App/View/pageCadastroUsuario.php" >Cadastrar-se</a>
                             <hr/>   
                             <center><h4>Ou</h4></center>
-                            <a class="btn btn-facebook btn-lg btn-block" href="../App/View/pageMenuSemPerfil.php" >Login sem perfil</a>
+                            <a class="btn btn-facebook btn-lg btn-block" href="../App/View/pageMenuPerfil.php" >Login sem perfil</a>
                         </div>
                     </div>
                 </div>

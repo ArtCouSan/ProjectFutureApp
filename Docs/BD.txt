@@ -7,59 +7,37 @@ CREATE TABLE Usuario(
     Nome VARCHAR(50) NOT NULL,
     Sexo VARCHAR(1) NOT NULL,
     CPF VARCHAR(14) NOT NUll,
-    Dt_Nasc varchar(20) NOT NULL,
+    Dt_Nasc varchar(10) NOT NULL,
     Cidade varchar(50) NOT NULL,
     Estado varchar(2) NOT NUll,
     Senha VARCHAR(50) NOT NULL,
-    Ativo TINYINT NOT NULL AUTO_INCREMENT,
+    Ativo TINYINT NOT NULL,
     PRIMARY KEY (id_pessoa),
     UNIQUE KEY id_pessoa (id_pessoa)
 );
 
-
-CREATE TABLE Instituicao(
-	Id_instituicao INT(5) NOT NULL AUTO_INCREMENT,
-    Nome VARCHAR(100) NOT NULL,
-    Banca VARCHAR(100) NOT NULL,
-    Dificuldade VARCHAR(1) NOT NULL,
-    Ativo TINYINT NOT NULL AUTO_INCREMENT,
-    PRIMARY KEY (Id_instituicao),
-	UNIQUE KEY Id_instituicao (Id_instituicao)
-);
-
 CREATE TABLE Prova(
-    Id_prova INT(5) NOT NULL AUTO_INCREMENT,
-    Id_instituicao INT(5) NOT NULL,
-    Dt_Prova DATE NOT NULL,
-    Versao VARCHAR(50) NOT NULL,
-    PRIMARY KEY (Id_prova),
-	UNIQUE KEY Id_prova (Id_prova),
-    FOREIGN KEY Id_instituicao(Id_instituicao) REFERENCES Instituicao (Id_instituicao)
+    Id_prova INT(5) NOT NULL,
+    Banca VARCHAR(10) NOT NULL,
+    Dt_Prova varchar(10) NOT NULL,
+    Versao VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE Questoes(
-    Id_questao INT(5) NOT NULL AUTO_INCREMENT,
-	Id_prova INT(5) NOT NULL,
+	Numero_q INT(5) NOT NULL,
+    Id_prova INT(5) NOT NULL,
     Enunciado VARCHAR(1000) NOT NULL,
     Tema VARCHAR(50) NOT NULL,
-    Imagem VARCHAR(50) NOT NULL,
-    Dificuldade VARCHAR(1) NOT NULL,
-    Resposta VARCHAR(1) NOT NULL,
-    Ativo TINYINT NOT NULL AUTO_INCREMENT,
-	PRIMARY KEY (Id_questao),
-	UNIQUE KEY Id_questao(Id_questao),
-    FOREIGN KEY Id_prova(Id_prova) REFERENCES Prova(Id_prova)
+    Sub_Tema VARCHAR(50) NOT NULL,
+    Dificuldade VARCHAR(10) NOT NULL,
+    Resposta VARCHAR(10) NOT NULL,
+    Dica VARCHAR(40) NOT NULL,
+    Alternativa_a VARCHAR(100) NOT NULL,
+    Alternativa_b VARCHAR(100) NOT NULL,
+    Alternativa_c VARCHAR(100) NOT NULL,
+    Alternativa_d VARCHAR(100) NOT NULL,
+    Alternativa_e VARCHAR(100) NOT NULL,
+    Ativo TINYINT NOT NULL
 );
-
-CREATE TABLE Alternativas(
-    Id_alternativas INT(5) NOT NULL AUTO_INCREMENT,
-    Id_questao INT(5) NOT NULL,
-    opcao VARCHAR(1) NOT NULL,
-    trecho VARCHAR(100) NOT NULL,
-    PRIMARY KEY (Id_alternativas),
-	UNIQUE KEY Id_alternativas(Id_alternativas),
-    FOREIGN KEY Id_questao(Id_questao) REFERENCES Questoes(Id_questao)
-);
-
 
 INSERT INTO `usuario`(`Nome`, `Sexo`, `CPF`, `Dt_Nasc`, `Cidade`, `Estado`, `Senha`) VALUES ("Arthur","M","437.931.688-24","17-01-1998","SP","SP","administrador");

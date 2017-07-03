@@ -9,7 +9,6 @@ if (isset($_GET['funcao'])) {
  * Cadastra nova questão
  */
 function cadastrarNovaQuestao() {
-
     $tema = $_GET["tema"];
     $sub_tema = $_GET["sub_tema"];
     $numero_q = $_GET["numero_q"];
@@ -26,24 +25,40 @@ function cadastrarNovaQuestao() {
     $alternativa_d = addslashes(trim($_GET["alternativa_d"]));
     $alternativa_e = addslashes(trim($_GET["alternativa_e"]));
 
-    if (validarDados($tema, $sub_tema, $numero_q, $banca, $versao, $data, $dificuldade, $alternativa, $dica, $enunciado, $alternativa_a, $alternativa_b, $alternativa_c, $alternativa_d, $alternativa_e
-            )) {
+    if (validarDados($tema, $sub_tema, $numero_q, $banca, $versao, $data, $dificuldade, $alternativa, $dica, $enunciado, $alternativa_a, $alternativa_b, $alternativa_c, $alternativa_d, $alternativa_e)) {
 
-        include('../DAL/QuestoesDAO.php');
+        include './DAL/QuestoesDAO.php';
+        
+        $id = 0;
 
-        $user = new QuestoesDAO();
+        if ($banca == 'Enem') {
+            
+            $id = 1;
+            
+        } else if ($banca == 'Fuvest') {
+            
+            $id = 2;
+            
+        } else {
+            
+            $id = 3;
+            
+        }
+        
+        $user = new QuestaoDAO();
+        
+        $user->cadastrarProva($id, $banca, $data, $versao);
+        
 
-        $user->cadastrarInstituicao($banca);
+        $user->cadastrarQuestao($id, $enunciado, $tema, $sub_tema, $dificuldade, $alternativa, $dica, $numero_q, $alternativa_a, $alternativa_b, $alternativa_c, $alternativa_d, $alternativa_e);
 
-        $user->cadastrarProva($data, $versao);
-
-        $user->cadastrarQuestao($enunciado, $tema, $sub_tema, $dificuldade, $alternativa, $dica, $numero_q);
-
-        $user->cadastrarAlternativa($alternativa_a, $alternativa_b, $alternativa_c, $alternativa_d, $alternativa_e);
     } else {
 
         echo "Dados Invalidos no Cadastro";
+        
     }
+    
+    
 }
 
 function validarDados($tema, $sub_tema, $numero_q, $banca, $versao, $data, $dificuldade, $alternativa, $dica, $enunciado, $alternativa_a, $alternativa_b, $alternativa_c, $alternativa_d, $alternativa_e) {

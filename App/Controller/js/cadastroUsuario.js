@@ -61,7 +61,7 @@ function cadastra() {
     var es = document.getElementById("estado").value;
     var cd = document.getElementById("cidade").value;
     if (verificaCampos(nm, se, cpf, sx, dt, es, cd)) {
-        var url = "../../Controller/ServicosUsuario.php";
+        var url = ".././Controller/ServicosUsuario.php";
         request.open("POST", url, true);
         request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         request.onreadystatechange = confirma;

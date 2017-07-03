@@ -4,9 +4,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Cadastro</title>
-        <link rel="stylesheet" type="text/css"  href="../../../Libs/css/css.css">
-        <link rel="stylesheet" type="text/css"  href="../../../Libs/foundation/css/foundation.css">
-        <script type="text/javascript" src="../js/cadastroQuestao.js"></script>
+        <link rel="stylesheet" type="text/css"  href="../../Libs/css/css.css">
+        <link rel="stylesheet" type="text/css"  href="../../Libs/foundation/css/foundation.css">
+        <script type="text/javascript" src="../../App/Controller/js/cadastroQuestao.js"></script>
     </head>
     <body >
         <?php include "cabecalho.php" ?>
@@ -32,12 +32,13 @@
                     <label>* Sub-Temas
                         <select id="sub_tema" name="sub_tema" required>
                             <option value="">Selecione o sub-tema</option>
+                            <option value="bi">Biologia</option>
                         </select>
                     </label>
                 </div>
                 <div class="large-4 columns">
                     <label>* Numero da questão
-                        <input id="numero_q" type="number" name="numero_q" min="0" onkeydown="return false" value="0" required/>
+                        <input id="numero_q" type="number" name="numero_q" min="0"  value="0" required/>
                     </label>
                 </div>
             </div>
@@ -46,9 +47,9 @@
                     <label>* Instituição / Banca
                         <select id="banca" name="banca" required>
                             <option value="">Selecione a instituição</option>
-                            <option value="enem">Enem</option>
-                            <option value="fuvest">Fuvest</option>
-                            <option value="etec">Etec</option>    
+                            <option value="Enem">Enem</option>
+                            <option value="Fuvest">Fuvest</option>
+                            <option value="Etec">Etec</option>    
                         </select>
                     </label>
                 </div>

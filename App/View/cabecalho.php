@@ -10,6 +10,10 @@
             if ($valor == 'N') {
                 echo '<li><a href="../../Public/index.php"  style="color: black">Tela de login</a></li>';
             } else {
+                if ($_SESSION['login'] == '437.931.688-24') {
+                    echo '<li><a href="pageCadastroUsuario.php"  style="color: black">Cadastrar Usuario</a></li>';
+                    echo '<li><a href="pageCadastroQuestao.php"  style="color: black">Cadastrar Questao</a></li>';
+                }
                 echo '<li><a href="../Controller/ServicosLogout.php"  style="color: black">Logout</a></li>';
             }
             ?>

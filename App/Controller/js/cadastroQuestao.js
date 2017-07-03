@@ -40,8 +40,10 @@ function cadastra() {
     var al_c = document.getElementById("alternativa_c").value;
     var al_d = document.getElementById("alternativa_d").value;
     var al_e = document.getElementById("alternativa_e").value;
+    var x = "cadastrarNovaQuestao";
     if (verificaCampos(te, sb, nq, ba, ve, dt, df, al, di, en, al_a, al_b, al_c, al_d, al_e)) {
-        var url = "../../Controller/ServicosQuestoes.php?funcao=cadastrarNovaQuestao&" +
+        var url = ".././Controller/ServicosQuestoes.php?" +
+                "funcao=" + x + "&" +
                 "tema=" + te + "&" +
                 "sub_tema=" + sb + "&" +
                 "numero_q=" + nq + "&" +
@@ -57,11 +59,11 @@ function cadastra() {
                 "alternativa_c=" + al_c + "&" +
                 "alternativa_d=" + al_d + "&" +
                 "alternativa_e=" + al_e;
-        request.open("GET", url, true);
-        request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         request.onreadystatechange = confirma;
+        request.open("GET", url, true);
         request.send();
     }
+
 }
 
 /**

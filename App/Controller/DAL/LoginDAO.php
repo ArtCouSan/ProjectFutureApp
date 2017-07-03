@@ -20,15 +20,7 @@ class Login {
             $_SESSION['login'] = $login;
             $_SESSION['senha'] = $senha;
 
-            if($login != '437.931.688-24') {
-
-                header('location:../View/pageMenuComPerfil.php');
-                
-            } else {
-                
-                header('location:../Admin/View/pagePerfil.php');
-                
-            }
+            header('location:../View/pageMenuPerfil.php');
             
         } else {
 
