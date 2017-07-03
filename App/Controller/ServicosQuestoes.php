@@ -26,7 +26,8 @@ function cadastrarNovaQuestao() {
     $alternativa_d = addslashes(trim($_GET["alternativa_d"]));
     $alternativa_e = addslashes(trim($_GET["alternativa_e"]));
 
-    if (validarDados($nm, $se, $cpf, $sx, $dt, $cd, $es)) {
+    if (validarDados($tema, $sub_tema, $numero_q, $banca, $versao, $data, $dificuldade, $alternativa, $dica, $enunciado, $alternativa_a, $alternativa_b, $alternativa_c, $alternativa_d, $alternativa_e
+            )) {
 
         include('../DAL/QuestoesDAO.php');
 
@@ -39,11 +40,81 @@ function cadastrarNovaQuestao() {
         $user->cadastrarQuestao($enunciado, $tema, $sub_tema, $dificuldade, $alternativa, $dica, $numero_q);
 
         $user->cadastrarAlternativa($alternativa_a, $alternativa_b, $alternativa_c, $alternativa_d, $alternativa_e);
-    
-        
     } else {
 
         echo "Dados Invalidos no Cadastro";
     }
-    
+}
+
+function validarDados($tema, $sub_tema, $numero_q, $banca, $versao, $data, $dificuldade, $alternativa, $dica, $enunciado, $alternativa_a, $alternativa_b, $alternativa_c, $alternativa_d, $alternativa_e) {
+
+    $cont = 0;
+
+    if (empty($tema)) {
+        $cont++;
+    }
+
+    if (empty($sub_tema)) {
+        $cont++;
+    }
+
+    if (empty($numero_q)) {
+        $cont++;
+    }
+
+    if (empty($banca)) {
+        $cont++;
+    }
+
+    if (empty($versao)) {
+        $cont++;
+    }
+
+    if (empty($data)) {
+        $cont++;
+    }
+
+    if (empty($dificuldade)) {
+        $cont++;
+    }
+
+    if (empty($alternativa)) {
+        $cont++;
+    }
+
+    if (empty($dica)) {
+        $cont++;
+    }
+
+    if (empty($enunciado)) {
+        $cont++;
+    }
+
+    if (empty($alternativa_a)) {
+        $cont++;
+    }
+
+    if (empty($alternativa_b)) {
+        $cont++;
+    }
+
+    if (empty($alternativa_c)) {
+        $cont++;
+    }
+
+    if (empty($alternativa_d)) {
+        $cont++;
+    }
+
+    if (empty($alternativa_e)) {
+        $cont++;
+    }
+
+    if ($cont > 0) {
+
+        return false;
+    } else {
+
+        return true;
+    }
 }

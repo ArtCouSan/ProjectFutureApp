@@ -9,14 +9,10 @@ class QuestaoDAO {
 
         include 'BancoDeDados.php';
 
-        $sql = "INSERT INTO Usuario(Nome, Sexo, CPF, Dt_Nasc, Cidade, Estado, Senha) VALUES( +
-        '$nm' ,
-        '$sx' ,
-        '$cpf' ,
-        '$dt' ,
-        '$cd' ,
-        '$es' ,
-        '$se' )";
+        $sql = "INSERT INTO Instituicao(
+            banca) 
+            VALUES( +
+        '$banca' )";
 
         $rs = mysqli_query($conmysql, $sql);
 
@@ -31,14 +27,22 @@ class QuestaoDAO {
 
         include 'BancoDeDados.php';
 
-        $sql = "INSERT INTO Usuario(Nome, Sexo, CPF, Dt_Nasc, Cidade, Estado, Senha) VALUES( +
-        '$nm' ,
-        '$sx' ,
-        '$cpf' ,
-        '$dt' ,
-        '$cd' ,
-        '$es' ,
-        '$se' )";
+        $sql = "INSERT INTO Questao(
+            Enunciado, 
+            Tema, 
+            Sub_tema, 
+            Dificuldade, 
+            Alternativa, 
+            Dica, 
+            Numero_q) 
+            VALUES( +
+        '$enunciado' ,
+        '$tema' ,
+        '$sub_tema' ,
+        '$dificuldade' ,
+        '$alternativa' ,
+        '$dica' ,
+        '$numero_q' )";
 
         $rs = mysqli_query($conmysql, $sql);
 
@@ -53,14 +57,11 @@ class QuestaoDAO {
 
         include 'BancoDeDados.php';
 
-        $sql = "INSERT INTO Usuario(Nome, Sexo, CPF, Dt_Nasc, Cidade, Estado, Senha) VALUES( +
-        '$nm' ,
-        '$sx' ,
-        '$cpf' ,
-        '$dt' ,
-        '$cd' ,
-        '$es' ,
-        '$se' )";
+        $sql = "INSERT INTO Usuario(
+            Data, 
+            Versao) VALUES( +
+        '$data' ,
+        '$versao' )";
 
         $rs = mysqli_query($conmysql, $sql);
 
@@ -71,18 +72,21 @@ class QuestaoDAO {
     /**
      * Cadastra nova alternativa
      */
-    function cadastrarAlternativa($alternativa_a, $alternativa_b, $alternativa_c, $alternativa_d, $alternativa_e) {
+    function cadastrarAlternativa($alternativa_a,$alternativa_b,$alternativa_c, $alternativa_d, $alternativa_e) {
 
         include 'BancoDeDados.php';
 
-        $sql = "INSERT INTO Usuario(Nome, Sexo, CPF, Dt_Nasc, Cidade, Estado, Senha) VALUES( +
-        '$nm' ,
-        '$sx' ,
-        '$cpf' ,
-        '$dt' ,
-        '$cd' ,
-        '$es' ,
-        '$se' )";
+        $sql = "INSERT INTO Alternativa(
+            Alternativa_A, 
+            Alternativa_B, 
+            Alternativa_C, 
+            Alternativa_D, 
+            Alternativa_E) VALUES( +
+        '$alternativa_a' ,
+        '$alternativa_b' ,
+        '$alternativa_c' ,
+        '$alternativa_d' ,
+        '$alternativa_e' )";
 
         $rs = mysqli_query($conmysql, $sql);
 
