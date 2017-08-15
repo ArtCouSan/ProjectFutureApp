@@ -65,4 +65,35 @@ class QuestaoDAO {
         mysqli_close($conmysql);
     }
 
+    /**
+     * Consultar todas as provas
+     */
+    public function consultarBancaProvas($banca) {
+
+        include 'BancoDeDados.php';
+
+        $sql = "SELECT * FROM Prova WHERE Banca = '$banca'";
+
+        $rs = mysqli_query($conmysql, $sql);
+
+        if (mysqli_num_rows($rs) > 0) {
+
+            $resultados = array();
+
+            while ($dado = mysql_fetch_assoc($rs)) {
+
+                $resultados[] = $dado;
+            }
+
+            mysqli_close($conmysql);
+
+            return $resultados;
+            
+        } else {
+            
+            return false;
+            
+        }
+    }
+
 }

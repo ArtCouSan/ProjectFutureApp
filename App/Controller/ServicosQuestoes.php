@@ -5,6 +5,18 @@ if (isset($_GET['funcao'])) {
     $_GET['funcao']();
 }
 
+function consultarProvaBanca($banca) {
+    
+    $banca = $_GET["insituicao"];
+
+    include './DAL/QuestoesDAO.php';
+
+    $lista = new QuestaoDAO();
+
+    $lista->consultarBancaProvas($banca);
+
+}
+
 /**
  * Cadastra nova questão
  */
@@ -28,37 +40,30 @@ function cadastrarNovaQuestao() {
     if (validarDados($tema, $sub_tema, $numero_q, $banca, $versao, $data, $dificuldade, $alternativa, $dica, $enunciado, $alternativa_a, $alternativa_b, $alternativa_c, $alternativa_d, $alternativa_e)) {
 
         include './DAL/QuestoesDAO.php';
-        
+
         $id = 0;
 
         if ($banca == 'Enem') {
-            
+
             $id = 1;
-            
         } else if ($banca == 'Fuvest') {
-            
+
             $id = 2;
-            
         } else {
-            
+
             $id = 3;
-            
         }
-        
+
         $user = new QuestaoDAO();
-        
+
         $user->cadastrarProva($id, $banca, $data, $versao);
-        
+
 
         $user->cadastrarQuestao($id, $enunciado, $tema, $sub_tema, $dificuldade, $alternativa, $dica, $numero_q, $alternativa_a, $alternativa_b, $alternativa_c, $alternativa_d, $alternativa_e);
-
     } else {
 
         echo "Dados Invalidos no Cadastro";
-        
     }
-    
-    
 }
 
 function validarDados($tema, $sub_tema, $numero_q, $banca, $versao, $data, $dificuldade, $alternativa, $dica, $enunciado, $alternativa_a, $alternativa_b, $alternativa_c, $alternativa_d, $alternativa_e) {

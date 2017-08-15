@@ -15,17 +15,17 @@
             <div class="column">
                 <img class="thumbnail" src="../../Libs/img/enem.jpg">
                 <h5 class="text-center">Enem</h5>
-                <a href="pageProvaPorInstituicao_Escolha.php" class="button expanded">Entrar</a>
+                <a href="pageProvaPorInstituicao_Escolha.php?instituicao=Enem" class="button expanded">Entrar</a>
             </div>
             <div class="column">
                 <img class="thumbnail" src="../../Libs/img/Fuvest.png">
                 <h5 class="text-center">Fuvest</h5>
-                <a href="pageProvaPorInstituicao_Escolha.php" class="button expanded">Entrar</a>
+                <a href="pageProvaPorInstituicao_Escolha.php?instituicao=Fuvest" class="button expanded">Entrar</a>
             </div>
             <div class="column">
                 <img class="thumbnail" src="../../Libs/img/Etec.png">
                 <h5 class="text-center">Etec</h5>
-                <a href="pageProvaPorInstituicao_Escolha.php" class="button expanded">Entrar</a>
+                <a href="pageProvaPorInstituicao_Escolha.php?instituicao=Etec" class="button expanded">Entrar</a>
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
