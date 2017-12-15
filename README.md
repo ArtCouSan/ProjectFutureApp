@@ -4,7 +4,7 @@
   
 # Utilização
 
-- Linguagem: IONIC 3
+- Linguagem: Ionic 3 e AngularJS 4
 
 # Autores
 ```
